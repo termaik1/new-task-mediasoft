@@ -90,7 +90,7 @@ const Home: FC<TProps> = ({ productService, cartService }) => {
   const onNextPage = (page: number) => productActions.updateCurrenPage(page);
 
   const filterList = useMemo(() => Object.values(filter), [filter]);
-    console.log('filterList', filterList)
+
   const currentProducts = useMemo(() => {
     if (isMobile) {
       return products.slice(0, visibleElement * currentPage);

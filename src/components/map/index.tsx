@@ -28,7 +28,7 @@ const Map: FC<TMapProps> = ({ onPlacemark = () => {} }) => {
 
   return (
     <div className={classes.root}>
-      <YMaps className={classes.root} onLoad={() => console.log('on load')} onError={(e) => console.log('err', e)}>
+      <YMaps className={classes.root}>
         <YandexMap defaultState={defaultState} onClick={onClick}>
           {coordinate && <Placemark geometry={coordinate} />}
         </YandexMap>
