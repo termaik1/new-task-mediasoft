@@ -8,6 +8,7 @@ export default makeStyles((theme) =>
     },
     item: {
       marginLeft: 20,
+      cursor: 'pointer',
       "&:first-child": {
         margin: 0,
       },
