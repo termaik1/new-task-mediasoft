@@ -4,11 +4,13 @@ import {
   RESET_PRODUCT_ITEM,
   SET_FILTER_ITEM,
   RESET_FILTERS,
+  SEARCH_VALUE,
 } from "./product.constants";
 import {
   updateCurrenPage,
   setProductItem,
   setFilterItem,
+  searchValue,
 } from "./product.actions";
 
 import { TProductInitialState } from "./product.models";
@@ -18,8 +20,8 @@ import { DEFAULT_VISIBLE_ELEMENT } from "app/config/constants";
 
 const initialState: TProductInitialState = {
   currentPage: 1,
-  totalCount: productData.length,
   visibleElement: DEFAULT_VISIBLE_ELEMENT,
+  initProducts: productData,
   products: productData,
   productItem: {
     id: "",
@@ -95,6 +97,19 @@ const productReducers = {
       },
       products: resultSort,
     };
+  },
+  [SEARCH_VALUE]: (
+    state: TProductInitialState,
+    { payload }: ReturnType<typeof searchValue>
+  ) => {
+    const { value } = payload;
+    const products = [...state.initProducts];
+
+    const searchProducts = value
+      ? products.filter((item) => value.indexOf(item.name) !== -1 && item)
+      : products;
+
+    return { ...state, products: searchProducts };
   },
 };
 

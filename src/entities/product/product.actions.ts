@@ -5,6 +5,7 @@ import {
   RESET_PRODUCT_ITEM,
   SET_FILTER_ITEM,
   RESET_FILTERS,
+  SEARCH_VALUE,
 } from "./product.constants";
 import { TProductItem } from "./product.models";
 
@@ -14,6 +15,7 @@ export interface IProductActions {
   resetProductItem(): void;
   setFilterItem(item: TFilterItem): void;
   resetFilters(): void;
+  searchValue(value: string): void;
 }
 
 export const updateCurrenPage = (page: number) => ({
@@ -37,4 +39,9 @@ export const setFilterItem = (item: TFilterItem) => ({
 
 export const resetFilters = () => ({
   type: RESET_FILTERS,
+});
+
+export const searchValue = (value: string) => ({
+  type: SEARCH_VALUE,
+  payload: { value },
 });

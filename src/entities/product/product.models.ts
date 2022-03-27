@@ -2,14 +2,14 @@ import { TFilterItem } from "app/models/filter.model";
 
 export type TProductInitialState = {
   currentPage: number;
-  totalCount: number;
   visibleElement: number;
+  initProducts: TProductItem[];
   products: TProductItem[];
   productItem: TProductItem
   filter: {
     name: TFilterItem
     price: TFilterItem
-  }
+  },
 };
 
 export type TProductItem = {

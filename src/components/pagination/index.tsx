@@ -22,8 +22,8 @@ type TProps = {
 
 const Pagination: FC<TProps> = ({
   onNextPage,
-  currentPage = 5,
-  totalCount = 43,
+  currentPage,
+  totalCount,
   visibleElement = DEFAULT_VISIBLE_ELEMENT,
 }) => {
   const { isMobile } = useMobile();
@@ -64,8 +64,8 @@ const Pagination: FC<TProps> = ({
     return rangeList(currentPage, currentPage + 3);
   }, [currentPage, totalCount, visibleElement]);
 
-  const isNextPages = totalPage !== currentPage;
-  const isPrevPages = currentPage !== 1;
+  const isNextPages = totalPage !== currentPage  && pages.length > 1;
+  const isPrevPages = currentPage !== 1
 
   return (
     <>

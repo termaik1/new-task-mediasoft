@@ -18,6 +18,7 @@ import { TProductItem } from "app/entities/product/product.models";
 import Product from "app/components/product";
 import Pagination from "app/components/pagination";
 import Filters from "app/components/filters";
+import Search from "app/components/search";
 import ModalProductDescription from "app/components/modals/product.description.modal";
 
 import stylesApp from "app/config/theme";
@@ -33,7 +34,6 @@ const Home: FC<TProps> = ({ productService, cartService }) => {
   const {
     filter,
     currentPage,
-    totalCount,
     visibleElement,
     products,
     actions: productActions,
@@ -77,6 +77,11 @@ const Home: FC<TProps> = ({ productService, cartService }) => {
   const onDeleteProductCart = useCallback((id: string) => {
     cartActions.deleteCartProductItem(id);
   }, []);
+
+  const onSearch = useCallback(
+    (value) => productActions.searchValue(value),
+    []
+  );
 
   const getCountProduct = useCallback(
     (id: string) => {
@@ -137,6 +142,11 @@ const Home: FC<TProps> = ({ productService, cartService }) => {
       <Grid container justifyContent="center">
         <Filters list={filterList} onChangeFilterItem={onChangeFilterItem} />
       </Grid>
+      <Box sx={{ mt: 2 }}>
+        <Grid container justifyContent="center">
+          <Search onSearch={onSearch} />
+        </Grid>
+      </Box>
       <Box sx={{ mt: 4 }}>
         <Grid
           container
@@ -151,7 +161,7 @@ const Home: FC<TProps> = ({ productService, cartService }) => {
         <Grid container justifyContent="center">
           <Pagination
             currentPage={currentPage}
-            totalCount={totalCount}
+            totalCount={products.length}
             visibleElement={visibleElement}
             onNextPage={onNextPage}
           />

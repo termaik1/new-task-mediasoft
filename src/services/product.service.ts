@@ -11,6 +11,7 @@ import {
   resetProductItem,
   resetFilters,
   setFilterItem,
+  searchValue,
 } from "app/entities/product/product.actions";
 
 const mapStateToProps = (state: IRootState): TProductState => state.product;
@@ -20,6 +21,7 @@ const mapDispatchToProps = (dispatch: Dispatch): IProductActions => ({
   resetProductItem: () => dispatch(resetProductItem()),
   resetFilters: () => dispatch(resetFilters()),
   setFilterItem: (item) => dispatch(setFilterItem(item)),
+  searchValue: (value) => dispatch(searchValue(value)),
 });
 
 export type TProductServiceProps = ReturnType<typeof mapStateToProps> & {
