@@ -3,7 +3,7 @@
 
 # 2) ТЗ на React
 
-[link ссылка](https://github.com/termaik1/new-task-mediasoft/blob/main/TaskReactJS.pdf)​
+[ссылка](https://github.com/termaik1/new-task-mediasoft/blob/main/TaskReactJS.pdf)​
 
 
 # 3) Описание
