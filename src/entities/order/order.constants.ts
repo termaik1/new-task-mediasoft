@@ -1,0 +1,3 @@
+export const NEXT_STEP_ITEM = "ORDER::NEXT_STEP_ITEM";
+export const RESET_STEPS = "ORDER::RESET_STEPS";
+export const SET_STEP_RESULT = "ORDER::SET_STEP_RESULT";
